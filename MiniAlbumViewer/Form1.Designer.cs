@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            folderBrowserDialog1 = new FolderBrowserDialog();
+            folderBrowserDialog = new FolderBrowserDialog();
             splitContainer1 = new SplitContainer();
             panel1 = new Panel();
             BtnFlip = new Button();
             BtnRotate = new Button();
             BtnFolder = new Button();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            pictureBox1 = new PictureBox();
+            flowLayoutPanel = new FlowLayoutPanel();
+            pictureBox = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             SuspendLayout();
             // 
             // splitContainer1
@@ -52,12 +52,12 @@
             // 
             // splitContainer1.Panel1
             // 
-            splitContainer1.Panel1.Controls.Add(flowLayoutPanel1);
+            splitContainer1.Panel1.Controls.Add(flowLayoutPanel);
             splitContainer1.Panel1.Controls.Add(panel1);
             // 
             // splitContainer1.Panel2
             // 
-            splitContainer1.Panel2.Controls.Add(pictureBox1);
+            splitContainer1.Panel2.Controls.Add(pictureBox);
             splitContainer1.Size = new Size(800, 450);
             splitContainer1.SplitterDistance = 266;
             splitContainer1.TabIndex = 0;
@@ -102,25 +102,26 @@
             BtnFolder.TabIndex = 2;
             BtnFolder.Text = "폴더 열기";
             BtnFolder.UseVisualStyleBackColor = true;
+            BtnFolder.Click += BtnFolder_Click;
             // 
-            // flowLayoutPanel1
+            // flowLayoutPanel
             // 
-            flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.Location = new Point(0, 0);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(266, 342);
-            flowLayoutPanel1.TabIndex = 1;
+            flowLayoutPanel.AutoScroll = true;
+            flowLayoutPanel.Dock = DockStyle.Fill;
+            flowLayoutPanel.Location = new Point(0, 0);
+            flowLayoutPanel.Name = "flowLayoutPanel";
+            flowLayoutPanel.Size = new Size(266, 342);
+            flowLayoutPanel.TabIndex = 1;
             // 
-            // pictureBox1
+            // pictureBox
             // 
-            pictureBox1.Dock = DockStyle.Fill;
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(530, 450);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            pictureBox.Dock = DockStyle.Fill;
+            pictureBox.Location = new Point(0, 0);
+            pictureBox.Name = "pictureBox";
+            pictureBox.Size = new Size(530, 450);
+            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox.TabIndex = 0;
+            pictureBox.TabStop = false;
             // 
             // Form1
             // 
@@ -135,19 +136,19 @@
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private FolderBrowserDialog folderBrowserDialog1;
+        private FolderBrowserDialog folderBrowserDialog;
         private SplitContainer splitContainer1;
         private Panel panel1;
         private Button BtnFolder;
         private Button BtnRotate;
         private Button BtnFlip;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private PictureBox pictureBox1;
+        private FlowLayoutPanel flowLayoutPanel;
+        private PictureBox pictureBox;
     }
 }
