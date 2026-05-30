@@ -30,11 +30,11 @@
         {
             folderBrowserDialog = new FolderBrowserDialog();
             splitContainer1 = new SplitContainer();
-            panel1 = new Panel();
-            BtnFlip = new Button();
-            BtnRotate = new Button();
-            BtnFolder = new Button();
             flowLayoutPanel = new FlowLayoutPanel();
+            panel1 = new Panel();
+            BtnFolder = new Button();
+            BtnRotate = new Button();
+            BtnFlip = new Button();
             pictureBox = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -62,6 +62,15 @@
             splitContainer1.SplitterDistance = 266;
             splitContainer1.TabIndex = 0;
             // 
+            // flowLayoutPanel
+            // 
+            flowLayoutPanel.AutoScroll = true;
+            flowLayoutPanel.Dock = DockStyle.Fill;
+            flowLayoutPanel.Location = new Point(0, 0);
+            flowLayoutPanel.Name = "flowLayoutPanel";
+            flowLayoutPanel.Size = new Size(266, 342);
+            flowLayoutPanel.TabIndex = 1;
+            // 
             // panel1
             // 
             panel1.Controls.Add(BtnFolder);
@@ -72,26 +81,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(266, 108);
             panel1.TabIndex = 0;
-            // 
-            // BtnFlip
-            // 
-            BtnFlip.Dock = DockStyle.Bottom;
-            BtnFlip.Location = new Point(0, 74);
-            BtnFlip.Name = "BtnFlip";
-            BtnFlip.Size = new Size(266, 34);
-            BtnFlip.TabIndex = 0;
-            BtnFlip.Text = "좌우 반전";
-            BtnFlip.UseVisualStyleBackColor = true;
-            // 
-            // BtnRotate
-            // 
-            BtnRotate.Dock = DockStyle.Bottom;
-            BtnRotate.Location = new Point(0, 40);
-            BtnRotate.Name = "BtnRotate";
-            BtnRotate.Size = new Size(266, 34);
-            BtnRotate.TabIndex = 1;
-            BtnRotate.Text = "90도 회전";
-            BtnRotate.UseVisualStyleBackColor = true;
             // 
             // BtnFolder
             // 
@@ -104,14 +93,27 @@
             BtnFolder.UseVisualStyleBackColor = true;
             BtnFolder.Click += BtnFolder_Click;
             // 
-            // flowLayoutPanel
+            // BtnRotate
             // 
-            flowLayoutPanel.AutoScroll = true;
-            flowLayoutPanel.Dock = DockStyle.Fill;
-            flowLayoutPanel.Location = new Point(0, 0);
-            flowLayoutPanel.Name = "flowLayoutPanel";
-            flowLayoutPanel.Size = new Size(266, 342);
-            flowLayoutPanel.TabIndex = 1;
+            BtnRotate.Dock = DockStyle.Bottom;
+            BtnRotate.Location = new Point(0, 40);
+            BtnRotate.Name = "BtnRotate";
+            BtnRotate.Size = new Size(266, 34);
+            BtnRotate.TabIndex = 1;
+            BtnRotate.Text = "90도 회전";
+            BtnRotate.UseVisualStyleBackColor = true;
+            BtnRotate.Click += BtnRotate_Click;
+            // 
+            // BtnFlip
+            // 
+            BtnFlip.Dock = DockStyle.Bottom;
+            BtnFlip.Location = new Point(0, 74);
+            BtnFlip.Name = "BtnFlip";
+            BtnFlip.Size = new Size(266, 34);
+            BtnFlip.TabIndex = 0;
+            BtnFlip.Text = "좌우 반전";
+            BtnFlip.UseVisualStyleBackColor = true;
+            BtnFlip.Click += BtnFlip_Click;
             // 
             // pictureBox
             // 

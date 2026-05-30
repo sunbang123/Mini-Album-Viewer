@@ -13,7 +13,7 @@
             FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
 
             // 대화상자를 열고 사용자가 폴더를 선택했는지 확인
-            if(folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
                 // 선택한 폴더 경로 가져오기
                 string selectedPath = folderBrowserDialog.SelectedPath;
@@ -22,18 +22,18 @@
                 string[] imageExtensions = { "*.jpg", "*.jpeg", "*.png", "*.bmp", "*.gif" };
                 List<string> imageFiles = new List<string>();
 
-                foreach(string ext in imageExtensions)
+                foreach (string ext in imageExtensions)
                 {
                     imageFiles.AddRange(Directory.GetFiles(selectedPath, ext));
                 }
 
                 // 폴더에 이미지가 최소 1장 있는 경우 첫번째 이미지 표시
-                if(imageFiles.Count > 0)
+                if (imageFiles.Count > 0)
                 {
                     // 기존에 생성된 썸네일 초기화
                     flowLayoutPanel.Controls.Clear();
 
-                    foreach(string imageFile in imageFiles)
+                    foreach (string imageFile in imageFiles)
                     {
                         PictureBox thumbBox = new PictureBox();
 
@@ -44,7 +44,17 @@
 
                         thumbBox.Tag = imageFile; // 이미지 파일 경로를 Tag에 저장
 
-                        thumbBox.Click += ThumbBox_Click; // 클릭 이벤트 핸들러 등록
+                        thumbBox.Click += ((sender, e) =>
+                        {
+                            // 1. 누가 클릭되었는지(sender) 확인하고 PictureBox로 형변환
+                            PictureBox clickedThumb = (PictureBox)sender;
+
+                            // 2. 아까 Tag 주머니에 넣어둔 '원본 파일 경로'를 꺼내기
+                            string originalPath = clickedThumb.Tag.ToString();
+
+                            // 3. 꺼낸 경로의 이미지를 우측 메인 PictureBox에 띄우기
+                            pictureBox.Image = Image.FromFile(originalPath);
+                        });
 
                         // FlowLayoutPanel에 PictureBox 추가
                         flowLayoutPanel.Controls.Add(thumbBox);
@@ -57,16 +67,18 @@
             }
         }
 
-        void ThumbBox_Click(object sender, EventArgs e)
+        private void BtnRotate_Click(object sender, EventArgs e)
         {
-            // 1. 누가 클릭되었는지(sender) 확인하고 PictureBox로 형변환
-            PictureBox clickedThumb = (PictureBox)sender;
+            Image img = pictureBox.Image;
+            img.RotateFlip(RotateFlipType.Rotate90FlipNone); // 시계 방향으로 90도 회전
+            pictureBox.Refresh(); // PictureBox 갱신
+        }
 
-            // 2. 아까 Tag 주머니에 넣어둔 '원본 파일 경로'를 꺼내기
-            string originalPath = clickedThumb.Tag.ToString();
-
-            // 3. 꺼낸 경로의 이미지를 우측 메인 PictureBox에 띄우기
-            pictureBox.Image = Image.FromFile(originalPath);
+        private void BtnFlip_Click(object sender, EventArgs e)
+        {
+            Image img = pictureBox.Image;
+            img.RotateFlip(RotateFlipType.RotateNoneFlipX); // 좌우 반전
+            pictureBox.Refresh(); // PictureBox 갱신
         }
     }
 }
